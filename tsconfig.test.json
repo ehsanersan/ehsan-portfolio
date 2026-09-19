@@ -1,0 +1,21 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "types": ["node"],
+    "module": "Node16",
+    "moduleResolution": "Node16",
+    "outDir": ".data/test-build",
+    "noEmit": false,
+    "incremental": false,
+    "isolatedModules": false,
+    "ignoreDeprecations": "6.0"
+  },
+  "include": [
+    "tests/*.test.ts",
+    "lib/content.ts",
+    "lib/validation.ts",
+    "lib/assistant.ts",
+    "lib/storage.ts"
+  ],
+  "exclude": ["node_modules"]
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "ehsan-ehterami",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-09-01",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": { "directory": ".open-next/assets", "binding": "ASSETS" },
+  "services": [{ "binding": "WORKER_SELF_REFERENCE", "service": "ehsan-ehterami" }],
+  "alias": { "node:sqlite": "./cloudflare/sqlite-unavailable.mjs" },
+  "vars": { "STORAGE_DRIVER": "neon", "TRUST_PROXY": "true", "HOSTING_PLATFORM": "cloudflare" },
+  "observability": { "enabled": false }
+}

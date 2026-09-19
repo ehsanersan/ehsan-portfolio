@@ -1,0 +1,15 @@
+node_modules/
+.next/
+.next-pages/
+out/
+.env*
+!.env.example
+.data/
+*.tsbuildinfo
+test-results/
+playwright-report/
+.vercel/
+.open-next/
+.wrangler/
+.dev.vars*
+.sites-runtime/
