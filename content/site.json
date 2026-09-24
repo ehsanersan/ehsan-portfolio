@@ -157,16 +157,6 @@
       "description": "مجموعه غذا با فضاسازی بنفش و سبز."
     },
     {
-      "id": "writer",
-      "title": "لحظه‌ای برای نوشتن",
-      "category": "فانتزی و شخصی",
-      "image": "/images/writer.webp",
-      "width": 1536,
-      "height": 2752,
-      "alt": "چهار قاب سینمایی از مردی در حال نوشتن پشت میز",
-      "description": "روایت تصویری یک لحظه در چهار قاب با نور گرم."
-    },
-    {
       "id": "new-c63f99a1",
       "title": "",
       "category": "محصول",
@@ -179,6 +169,16 @@
       "video": "",
       "before": "/images/rice.webp",
       "after": ""
+    },
+    {
+      "id": "writer",
+      "title": "لحظه‌ای برای نوشتن",
+      "category": "فانتزی و شخصی",
+      "image": "/images/writer.webp",
+      "width": 1536,
+      "height": 2752,
+      "alt": "چهار قاب سینمایی از مردی در حال نوشتن پشت میز",
+      "description": "روایت تصویری یک لحظه در چهار قاب با نور گرم."
     }
   ],
   "services": [
