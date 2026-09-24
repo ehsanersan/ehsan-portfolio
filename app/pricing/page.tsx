@@ -1,28 +1,29 @@
+import { copyText, copyLink } from "@/lib/content";
 import { PageIntro, SectionHeading } from "@/components/sections";
 import { Pricing } from "@/components/pricing";
 import { ConsultationForm } from "@/components/consultation-form";
 import { pageMeta } from "@/lib/seo";
 export const metadata = pageMeta(
-  "تعرفه‌ها و برآورد اولیه",
-  "سطوح همکاری برای عکاسی، ویدیو، روتوش و آموزش. دریافت برآورد اولیه متناسب با جزئیات پروژه.",
+  copyText("pricing_d15edd592e"),
+  copyText("pricing_ffcc5a8a21"),
   "/pricing",
 );
 export default function PricingPage() {
   return (
     <>
       <PageIntro
-        eyebrow="شفاف، متناسب با پروژه شما"
-        title="یک انتخاب روشن برای شروع"
-        description="هر پروژه نیازهای خودش را دارد. این سه سطح، نقطه شروع گفت‌وگوی ما هستند؛ قیمت نهایی پس از بررسی جزئیات اعلام می‌شود."
+        eyebrow={copyText("pricing_8c3a6fe2d4")}
+        title={copyText("pricing_0d53d55715")}
+        description={copyText("pricing_8a016952ca")}
       />
       <section className="wrap page-section">
         <Pricing />
       </section>
       <section className="section wrap estimate-section">
         <SectionHeading
-          eyebrow="برآورد اولیه"
-          title="از پروژه بگویید؛ جزئیات را بررسی کنیم."
-          description="این فرم برای درخواست بررسی هزینه است و قیمت قطعی یا رزرو ایجاد نمی‌کند."
+          eyebrow={copyText("pricing_2be4b702d3")}
+          title={copyText("pricing_bb76ce7466")}
+          description={copyText("pricing_f4108bf14a")}
         />
         <ConsultationForm estimate />
       </section>

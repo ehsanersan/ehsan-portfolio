@@ -1,3 +1,4 @@
+import { copyText, copyLink } from "@/lib/content";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
@@ -45,7 +46,7 @@ export default async function ServicePage({
         }}
       />
       <PageIntro
-        eyebrow="خدمات / جزئیات"
+        eyebrow={copyText("services_slug__0923a0a08c")}
         title={s.title}
         description={s.desc}
       />
@@ -62,36 +63,31 @@ export default async function ServicePage({
           </div>
         )}
         <div>
-          <h2>از نیاز شما شروع می‌کنیم.</h2>
+          <h2>{copyText("services_slug__6b889f1f62")}</h2>
           <p>{s.body}</p>
-          <h3>برای شروع، چه اطلاعاتی لازم است؟</h3>
+          <h3>{copyText("services_slug__bb6720da4b")}</h3>
           <ul>
-            <li>هدف پروژه و کاربرد تصاویر</li>
-            <li>زمان و محل پیشنهادی</li>
-            <li>تعداد خروجی و نمونه‌های موردعلاقه</li>
+            <li>{copyText("services_slug__b96947b56b")}</li>
+            <li>{copyText("services_slug__302d339f45")}</li>
+            <li>{copyText("services_slug__41227a425c")}</li>
           </ul>
           <div className="hero-actions">
             <Link
               href={`/contact?service=${encodeURIComponent(s.title)}`}
               className="button primary"
-            >
-              مشاوره این خدمت <Icon name="arrow" />
+            >{copyText("services_slug__5fc8682c8e")}<Icon name="arrow" />
             </Link>
             <Link
               href={`/portfolio?category=${encodeURIComponent(s.category)}`}
               className="button"
-            >
-              مشاهده نمونه‌کار
-            </Link>
+            >{copyText("services_slug__15221aa73b")}</Link>
           </div>
-          <Link href="/pricing" className="text-link">
-            تعرفه‌ها و استعلام قیمت
-          </Link>
+          <Link href={copyLink("services_slug__7394a2bb76")} className="text-link">{copyText("services_slug__f2158e5906")}</Link>
         </div>
       </section>
       <Process />
       <section className="wrap page-section">
-        <h2>پیش از سفارش</h2>
+        <h2>{copyText("services_slug__10fb8c6250")}</h2>
         <FAQ limit={4} />
       </section>
     </>

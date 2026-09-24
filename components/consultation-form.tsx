@@ -1,4 +1,6 @@
 "use client";
+import { copyText, copyLink } from "@/lib/content";
+
 import { useRef, useState } from "react";
 import Link from "next/link";
 import { services, pricingCategories, site, whatsappUrl } from "@/lib/content";
@@ -112,88 +114,74 @@ export function ConsultationForm({
         <p>
           {isStaticPreview ? "هنوز درخواستی ارسال یا ذخیره نشده است. دکمهٔ زیر را انتخاب کنید و پیام آماده را در واتس‌اپ ارسال کنید." : "اطلاعات شما برای بررسی ذخیره شد. ثبت درخواست به معنی تأیید رزرو یا قیمت قطعی نیست."}
         </p>
-        {!isStaticPreview && <div className="tracking">
-          کد پیگیری <strong dir="ltr">{success.tracking}</strong>
+        {!isStaticPreview && <div className="tracking">{copyText("consultation_form_53b3e0c705")}<strong dir="ltr">{success.tracking}</strong>
         </div>}
         <a
           href={whatsappUrl(success.message)}
           target="_blank"
           rel="noopener noreferrer"
           className="button primary"
-        >
-          ادامه گفت‌وگو در واتس‌اپ <Icon name="chat" />
+        >{copyText("consultation_form_f6b442dc3b")}<Icon name="chat" />
         </a>
       </div>
     );
   return (
     <form ref={ref} onSubmit={submit} className="consultation-form">
-      {isStaticPreview && <p className="privacy-note">در این نسخه، فرم پیام درخواست شما را برای واتس‌اپ آماده می‌کند. ارسال نهایی با خود شماست و اطلاعات در سایت ذخیره نمی‌شود.</p>}
+      {isStaticPreview && <p className="privacy-note">{copyText("consultation_form_70cd75be19")}</p>}
       <div className="form-steps" aria-label={`مرحله ${step} از ۲`}>
-        <span className={step === 1 ? "active" : ""}>
-          ۱ <b>درباره پروژه</b>
+        <span className={step === 1 ? "active" : ""}>{copyText("consultation_form_850e975608")}<b>{copyText("consultation_form_d5f60c0c6f")}</b>
         </span>
         <i />
-        <span className={step === 2 ? "active" : ""}>
-          ۲ <b>راه ارتباطی</b>
+        <span className={step === 2 ? "active" : ""}>{copyText("consultation_form_a87594cf61")}<b>{copyText("consultation_form_531f828291")}</b>
         </span>
       </div>
       <fieldset data-step="1" hidden={step !== 1}>
-        <legend>از پروژه‌تان بگویید</legend>
+        <legend>{copyText("consultation_form_9c0e640b08")}</legend>
         <div className="form-grid">
-          <label>
-            نوع خدمات <span>*</span>
+          <label>{copyText("consultation_form_f0c178cd30")}<span>*</span>
             <select name="service" required defaultValue={initialService}>
-              <option value="">انتخاب کنید</option>
+              <option value="">{copyText("consultation_form_bfddea31e1")}</option>
               {opts.map((s) => (
                 <option key={s}>{s}</option>
               ))}
             </select>
           </label>
-          <label>
-            شهر یا محل پروژه <span>*</span>
+          <label>{copyText("consultation_form_8c691ffd46")}<span>*</span>
             <input
               name="city"
               required
               minLength={2}
               maxLength={120}
               autoComplete="address-level2"
-              placeholder="شهر و محل پیشنهادی"
+              placeholder={copyText("consultation_form_4193096534")}
             />
           </label>
-          <label>
-            تاریخ احتمالی پروژه
-            <input
+          <label>{copyText("consultation_form_be14dd7ab2")}<input
               name="date"
               maxLength={40}
-              placeholder="مثلاً مهر ۱۴۰۵؛ هنوز قطعی نیست"
+              placeholder={copyText("consultation_form_ef24bcda8f")}
             />
           </label>
-          <label>
-            تعداد عکس یا مدت پروژه
-            <input
+          <label>{copyText("consultation_form_977700b89d")}<input
               name="quantity"
               maxLength={50}
-              placeholder="مثلاً ۱۰ عکس یا یک جلسه"
+              placeholder={copyText("consultation_form_db72eb1752")}
             />
           </label>
-          <label className="full">
-            خدمات تکمیلی موردنیاز
-            <input
+          <label className="full">{copyText("consultation_form_a1399a55cc")}<input
               name="extras"
               maxLength={500}
-              placeholder="مثلاً روتوش، تدوین یا عکاسی در محل"
+              placeholder={copyText("consultation_form_c1161a85d5")}
             />
           </label>
         </div>
-        <button type="button" onClick={next} className="button primary">
-          ادامه؛ اطلاعات تماس <Icon name="left" />
+        <button type="button" onClick={next} className="button primary">{copyText("consultation_form_2608815636")}<Icon name="left" />
         </button>
       </fieldset>
       <fieldset hidden={step !== 2}>
-        <legend>گفت‌وگو را از کجا شروع کنیم؟</legend>
+        <legend>{copyText("consultation_form_09383a4b4e")}</legend>
         <div className="form-grid">
-          <label>
-            نام و نام خانوادگی <span>*</span>
+          <label>{copyText("consultation_form_4c27c516db")}<span>*</span>
             <input
               name="name"
               required={step === 2}
@@ -202,8 +190,7 @@ export function ConsultationForm({
               autoComplete="name"
             />
           </label>
-          <label>
-            شماره موبایل <span>*</span>
+          <label>{copyText("consultation_form_b29f6c4b6d")}<span>*</span>
             <input
               name="phone"
               type="tel"
@@ -211,80 +198,66 @@ export function ConsultationForm({
               required={step === 2}
               maxLength={20}
               autoComplete="tel"
-              placeholder="۰۹۱۲۱۲۳۴۵۶۷"
+              placeholder={copyText("consultation_form_176f4e7668")}
               dir="ltr"
             />
           </label>
-          <label>
-            روش تماس ترجیحی
-            <select
+          <label>{copyText("consultation_form_507a4061d4")}<select
               name="contactMethod"
               value={method}
               onChange={(e) => setMethod(e.target.value)}
             >
-              <option>تماس</option>
-              <option>واتس‌اپ</option>
-              <option>اینستاگرام</option>
+              <option>{copyText("consultation_form_e9605b11ee")}</option>
+              <option>{copyText("consultation_form_37b0f13c5e")}</option>
+              <option>{copyText("consultation_form_75a47f7ff0")}</option>
             </select>
           </label>
-          <label>
-            بهترین زمان تماس
-            <input name="bestTime" maxLength={100} placeholder="مثلاً عصرها" />
+          <label>{copyText("consultation_form_e2ffd1e564")}<input name="bestTime" maxLength={100} placeholder={copyText("consultation_form_864e57f649")} />
           </label>
-          <label hidden={method !== "اینستاگرام"}>
-            شناسه اینستاگرام <span>*</span>
+          <label hidden={method !== "اینستاگرام"}>{copyText("consultation_form_607d1013b2")}<span>*</span>
             <input
               name="contactHandle"
               required={step === 2 && method === "اینستاگرام"}
               maxLength={100}
               dir="ltr"
-              placeholder="@username"
+              placeholder={copyText("consultation_form_93100fc44c")}
             />
           </label>
-          <label>
-            بودجه حدودی (اختیاری)
-            <input
+          <label>{copyText("consultation_form_21cb5c9dbd")}<input
               name="budget"
               maxLength={100}
-              placeholder="بازه بودجه به تومان"
+              placeholder={copyText("consultation_form_ecbb2f3584")}
             />
           </label>
-          <label>
-            لینک نمونه یا فایل مرجع
-            <input
+          <label>{copyText("consultation_form_a679d6abf0")}<input
               name="reference"
               type="url"
               maxLength={2000}
               dir="ltr"
-              placeholder="https://…"
+              placeholder={copyText("consultation_form_ab04e20ed4")}
             />
-            <small>لینک عکس یا پوشه اشتراکی را وارد کنید.</small>
+            <small>{copyText("consultation_form_65a43db033")}</small>
           </label>
-          <label className="full">
-            توضیحات پروژه <span>*</span>
+          <label className="full">{copyText("consultation_form_529eeb0f67")}<span>*</span>
             <textarea
               name="description"
               required={step === 2}
               minLength={5}
               maxLength={3000}
               rows={4}
-              placeholder="چه تصویری در ذهن دارید؟"
+              placeholder={copyText("consultation_form_d00fb7b6ea")}
             />
           </label>
         </div>
         <div className="honeypot" aria-hidden="true">
-          <label>
-            این قسمت خالی بماند
-            <input name="website" tabIndex={-1} autoComplete="off" />
+          <label>{copyText("consultation_form_acbe7c091c")}<input name="website" tabIndex={-1} autoComplete="off" />
           </label>
         </div>
         <label className="consent">
           <input type="checkbox" name="consent" required={step === 2} />
           <span>
             {isStaticPreview ? "با آماده‌سازی پیام واتس‌اپ و تماس درباره درخواستم موافقم." : "با ذخیره اطلاعات این فرم و تماس درباره درخواستم موافقم."}{" "}
-            <Link href="/privacy" target="_blank">
-              حریم خصوصی
-            </Link>
+            <Link href={copyLink("consultation_form_0ece7f7c30")} target="_blank">{copyText("consultation_form_2dbc83047a")}</Link>
           </span>
         </label>
         <div className="form-buttons">
@@ -303,21 +276,17 @@ export function ConsultationForm({
             disabled={busy}
             className="button"
             onClick={() => setStep(1)}
-          >
-            مرحله قبل
-          </button>
+          >{copyText("consultation_form_5a4d91c474")}</button>
         </div>
       </fieldset>
       {error && (
         <div className="form-error" role="alert">
           {error}
           <br />
-          <a href={`tel:${site.phone}`}>تماس مستقیم: {site.phoneLabel}</a>
+          <a href={`tel:${site.phone}`}>{copyText("consultation_form_9639970642")}{site.phoneLabel}</a>
         </div>
       )}
-      <p className="form-note">
-        مشاوره اولیه رایگان است. قیمت و زمان پروژه پس از بررسی نهایی می‌شود.
-      </p>
+      <p className="form-note">{copyText("consultation_form_60c1943552")}</p>
     </form>
   );
 }

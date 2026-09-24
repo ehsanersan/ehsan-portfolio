@@ -1,8 +1,9 @@
+import { copyText, copyLink } from "@/lib/content";
 import { AboutBlock, PageIntro, CTA } from "@/components/sections";
 import { site, testimonials } from "@/lib/content";
 import { pageMeta } from "@/lib/seo";
 export const metadata = pageMeta(
-  "درباره احسان احترامی",
+  copyText("about_2dc23a1e33"),
   site.description,
   "/about",
 );
@@ -10,28 +11,20 @@ export default function About() {
   return (
     <>
       <PageIntro
-        eyebrow="پشت دوربین"
-        title="نگاهی که در طول زمان شکل گرفته است."
-        description="احسان احترامی؛ ۳۵ ساله، عکاس، ادیتور، ویدیوگرافر و مدرس عکاسی، نورپردازی و فتوشاپ."
+        eyebrow={copyText("about_b181b56708")}
+        title={copyText("about_94053ea054")}
+        description={copyText("about_f3e7112637")}
       />
       <AboutBlock />
       <section className="wrap page-section editorial">
-        <span className="eyebrow">رویکرد من</span>
-        <h2>هویت هر تصویر، از توجه شروع می‌شود.</h2>
-        <p>
-          برای من، شناخت فرد یا محصول پیش از شروع عکاسی اهمیت دارد. گفت‌وگو
-          درباره هدف پروژه کمک می‌کند انتخاب نور، کادر و ادیت در یک مسیر قرار
-          بگیرند؛ مسیری که به داستان شما وفادار باشد.
-        </p>
-        <p>
-          بیش از ۱۵ سال فعالیت نیمه‌حرفه‌ای و حرفه‌ای در شاخه‌های مختلف عکاسی،
-          بخشی از تجربه‌ای است که در پروژه‌ها و جلسات آموزش خصوصی با شما به
-          اشتراک می‌گذارم.
-        </p>
+        <span className="eyebrow">{copyText("about_cad00e8768")}</span>
+        <h2>{copyText("about_0d7b02249d")}</h2>
+        <p>{copyText("about_a2174d9bc1")}</p>
+        <p>{copyText("about_7a5d1dd133")}</p>
       </section>
       {testimonials.length > 0 && (
         <section className="wrap page-section">
-          <h2>تجربه مشتریان و هنرجویان</h2>
+          <h2>{copyText("about_8b2b51bfc9")}</h2>
           {testimonials.map((t) => (
             <blockquote key={t.name}>
               <p>{t.text}</p>

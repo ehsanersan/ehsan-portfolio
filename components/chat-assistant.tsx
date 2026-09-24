@@ -1,4 +1,6 @@
 "use client";
+import { copyText, copyLink } from "@/lib/content";
+
 import { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import { site, whatsappUrl } from "@/lib/content";
@@ -55,7 +57,7 @@ export function ChatAssistant() {
       {open && (
         <section
           className="chat-panel"
-          aria-label="دستیار احسان"
+          aria-label={copyText("chat_assistant_694402c0e1")}
           onKeyDown={(e) => {
             if (e.key === "Escape") {
               setOpen(false);
@@ -66,13 +68,12 @@ export function ChatAssistant() {
           <div className="chat-header">
             <div>
               <Icon name="aperture" />
-              <span>
-                دستیار احسان<small>راهنمای خدمات و سؤالات متداول</small>
+              <span>{copyText("chat_assistant_ddc28aeefb")}<small>{copyText("chat_assistant_4ab7627e81")}</small>
               </span>
             </div>
             <button
               className="icon-button"
-              aria-label="بستن دستیار"
+              aria-label={copyText("chat_assistant_42a6ee63ed")}
               onClick={() => {
                 setOpen(false);
                 trigger.current?.focus();
@@ -87,24 +88,18 @@ export function ChatAssistant() {
                 <p>{m.text}</p>
                 {m.fallback && (
                   <div className="chat-links">
-                    <Link href="/contact" onClick={() => setOpen(false)}>
-                      ثبت مشاوره
-                    </Link>
-                    <a href={`tel:${site.phone}`}>تماس</a>
+                    <Link href={copyLink("chat_assistant_4eb9506365")} onClick={() => setOpen(false)}>{copyText("chat_assistant_466eb39d0a")}</Link>
+                    <a href={`tel:${site.phone}`}>{copyText("chat_assistant_e9605b11ee")}</a>
                     <a
                       href={whatsappUrl(summary)}
                       target="_blank"
                       rel="noopener noreferrer"
-                    >
-                      واتس‌اپ و خلاصه گفتگو
-                    </a>
+                    >{copyText("chat_assistant_2db3d0b839")}</a>
                     <a
                       href={site.instagram}
                       target="_blank"
                       rel="noopener noreferrer"
-                    >
-                      اینستاگرام
-                    </a>
+                    >{copyText("chat_assistant_ac7a6aa65c")}</a>
                   </div>
                 )}
               </div>
@@ -124,28 +119,24 @@ export function ChatAssistant() {
             }}
             className="chat-form"
           >
-            <label className="sr-only" htmlFor="chat-input">
-              سؤال شما
-            </label>
+            <label className="sr-only" htmlFor="chat-input">{copyText("chat_assistant_5624101bb6")}</label>
             <input
               ref={input}
               id="chat-input"
               value={text}
               onChange={(e) => setText(e.target.value)}
               maxLength={500}
-              placeholder="سؤالتان را بنویسید…"
+              placeholder={copyText("chat_assistant_70c689cb66")}
             />
             <button
               type="submit"
               className="icon-button"
-              aria-label="ارسال سؤال"
+              aria-label={copyText("chat_assistant_a3dd80a69e")}
             >
               <Icon name="send" size={18} />
             </button>
           </form>
-          <small className="chat-disclosure">
-            پاسخ‌ها از راهنمای محلی سایت هستند.
-          </small>
+          <small className="chat-disclosure">{copyText("chat_assistant_1c66f03fb6")}</small>
         </section>
       )}
       <button
@@ -156,7 +147,7 @@ export function ChatAssistant() {
         aria-label={open ? "بستن دستیار احسان" : "باز کردن دستیار احسان"}
       >
         <Icon name={open ? "close" : "chat"} size={22} />
-        <span>دستیار احسان</span>
+        <span>{copyText("chat_assistant_694402c0e1")}</span>
       </button>
     </div>
   );

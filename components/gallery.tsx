@@ -1,4 +1,6 @@
 "use client";
+import { copyText, copyLink } from "@/lib/content";
+
 import { assetPath } from "@/lib/paths";
 import Image from "next/image";
 import Link from "next/link";
@@ -17,18 +19,16 @@ function Comparison({ work }: { work: Work }) {
           alt={`پس از ادیت: ${work.alt}`}
           style={{ clipPath: `inset(0 ${100 - value}% 0 0)` }}
         />
-        <span className="compare-before">قبل</span>
-        <span className="compare-after">بعد</span>
+        <span className="compare-before">{copyText("gallery_52e897d4df")}</span>
+        <span className="compare-after">{copyText("gallery_3dc3397bee")}</span>
       </div>
-      <label>
-        مقایسه قبل و بعد
-        <input
+      <label>{copyText("gallery_b5da9666c6")}<input
           type="range"
           min="0"
           max="100"
           value={value}
           onChange={(e) => setValue(Number(e.target.value))}
-          aria-label="میزان نمایش تصویر بعد از ادیت"
+          aria-label={copyText("gallery_cbd25df312")}
         />
       </label>
     </div>
@@ -112,7 +112,7 @@ export function Gallery({
       <div
         className="filter-list"
         role="group"
-        aria-label="فیلتر دسته‌بندی نمونه‌کارها"
+        aria-label={copyText("gallery_2882169661")}
       >
         {categories.map((c) => (
           <button
@@ -126,9 +126,7 @@ export function Gallery({
         ))}
       </div>
       <p className="gallery-count" aria-live="polite">
-        {new Intl.NumberFormat("fa-IR").format(visible.length)} اثر در این
-        مجموعه
-      </p>
+        {new Intl.NumberFormat("fa-IR").format(visible.length)}{copyText("gallery_29e3376fbe")}</p>
       {visible.length ? (
         <div className="masonry">
           {visible.map((w) => (
@@ -176,20 +174,19 @@ export function Gallery({
             }
             size={42}
           />
-          <h2>هنوز اثری در این مجموعه منتشر نشده است.</h2>
-          <p>برای بررسی نمونه‌های مرتبط با پروژه‌تان، با من در تماس باشید.</p>
+          <h2>{copyText("gallery_bce2669030")}</h2>
+          <p>{copyText("gallery_df74636159")}</p>
           <Link
             href={`/contact?service=${encodeURIComponent(category)}`}
             className="button"
-          >
-            مشاوره این پروژه <Icon name="arrow" />
+          >{copyText("gallery_dbd2b0a578")}<Icon name="arrow" />
           </Link>
         </div>
       )}
       <dialog
         ref={dialog}
         className="lightbox"
-        aria-label="نمایش تمام‌صفحه نمونه‌کار"
+        aria-label={copyText("gallery_2b2e39f43d")}
         onClick={(e) => {
           if (e.target === e.currentTarget) dialog.current?.close();
         }}
@@ -211,7 +208,7 @@ export function Gallery({
               autoFocus
               className="icon-button"
               onClick={() => dialog.current?.close()}
-              aria-label="بستن تصویر"
+              aria-label={copyText("gallery_cbe4499be6")}
             >
               <Icon name="close" />
             </button>
@@ -242,7 +239,7 @@ export function Gallery({
             <button
               className="icon-button"
               onClick={() => move(-1)}
-              aria-label="اثر قبلی"
+              aria-label={copyText("gallery_20f731cf90")}
             >
               <Icon name="right" />
             </button>
@@ -255,7 +252,7 @@ export function Gallery({
             <button
               className="icon-button"
               onClick={() => move(1)}
-              aria-label="اثر بعدی"
+              aria-label={copyText("gallery_fff2e1df59")}
             >
               <Icon name="left" />
             </button>

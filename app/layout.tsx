@@ -8,6 +8,7 @@ import { site } from "@/lib/content";
 import { origin } from "@/lib/seo";
 import { ChatAssistant } from "@/components/chat-assistant";
 import { SiteEnhancements } from "@/components/site-enhancements";
+import { HideOnAdmin } from "@/components/hide-on-admin";
 export const metadata: Metadata = {
   metadataBase: new URL(origin),
   title: {
@@ -45,7 +46,7 @@ export default function RootLayout({
         name: site.name,
         description: site.description,
         url: origin,
-        telephone: "+989173673306",
+        telephone: site.phone,
         founder: { "@id": `${origin}/#person` },
         ...(site.serviceArea ? { areaServed: site.serviceArea } : {}),
       },
@@ -60,11 +61,9 @@ export default function RootLayout({
             __html: JSON.stringify(schema).replace(/</g, "\u003c"),
           }}
         />
-        <Header />
+        <HideOnAdmin><Header /></HideOnAdmin>
         <main id="main">{children}</main>
-        <Footer />
-        <ChatAssistant />
-        <SiteEnhancements />
+        <HideOnAdmin><Footer /><ChatAssistant /><SiteEnhancements /></HideOnAdmin>
       </body>
     </html>
   );

@@ -1,3 +1,4 @@
+import { copyText, copyLink } from "@/lib/content";
 import Link from "next/link";
 import Image from "next/image";
 import { services, faqs, processSteps, site } from "@/lib/content";
@@ -53,7 +54,7 @@ export function ServiceCards({ limit }: { limit?: number }) {
           ) : (
             <div className="service-image abstract">
               <Icon name={s.icon} size={44} />
-              <span>نمونه‌کار این بخش به‌زودی اضافه می‌شود</span>
+              <span>{copyText("sections_42fc86f231")}</span>
             </div>
           )}
           <div className="service-content">
@@ -68,12 +69,9 @@ export function ServiceCards({ limit }: { limit?: number }) {
             <div className="card-links">
               <Link
                 href={`/portfolio?category=${encodeURIComponent(s.category)}`}
-              >
-                نمونه‌کارها <Icon name="arrow" size={16} />
+              >{copyText("sections_ce318ed532")}<Icon name="arrow" size={16} />
               </Link>
-              <Link href={`/contact?service=${encodeURIComponent(s.title)}`}>
-                دریافت مشاوره
-              </Link>
+              <Link href={`/contact?service=${encodeURIComponent(s.title)}`}>{copyText("sections_2d8917e753")}</Link>
             </div>
           </div>
         </article>
@@ -105,8 +103,8 @@ export function Process() {
   return (
     <section className="section wrap">
       <SectionHeading
-        eyebrow="مسیر همکاری"
-        title="از یک ایده، تا یک تصویر ماندگار"
+        eyebrow={copyText("sections_d477dd28f2")}
+        title={copyText("sections_02c2c71053")}
       />
       <ol className="process">
         {processSteps.map((s, i) => (
@@ -120,8 +118,7 @@ export function Process() {
           </li>
         ))}
       </ol>
-      <Link href="/contact" className="text-link">
-        پروژه‌ات را شروع کنیم <Icon name="arrow" />
+      <Link href={copyLink("sections_4eb9506365")} className="text-link">{copyText("sections_3b544801df")}<Icon name="arrow" />
       </Link>
     </section>
   );
@@ -130,20 +127,18 @@ export function CTA() {
   return (
     <section className="cta wrap">
       <div>
-        <span className="eyebrow">قاب بعدی، داستان شماست</span>
-        <h2>
-          ایده‌ای در ذهن دارید؟
-          <br />
-          <em>بیایید به آن تصویر بدهیم.</em>
+        <span className="eyebrow">{copyText("sections_f7b10b9a8a")}</span>
+        <h2>{copyText("sections_6a3842e7c2")}<br />
+          <em>{copyText("sections_56f4a16583")}</em>
         </h2>
       </div>
       <Link
-        href="/contact"
+        href={copyLink("sections_4eb9506365")}
         className="round-cta"
-        aria-label="شروع پروژه و دریافت مشاوره"
+        aria-label={copyText("sections_156a85f5f6")}
       >
         <Icon name="arrow" size={38} />
-        <span>شروع یک گفت‌وگو</span>
+        <span>{copyText("sections_be9aa89533")}</span>
       </Link>
     </section>
   );
@@ -156,28 +151,27 @@ export function AboutBlock() {
           src={site.portrait}
           fill
           sizes="(max-width:700px) 100vw, 40vw"
-          alt="احسان احترامی، عکاس و مدرس"
+          alt={copyText("sections_cb6a2982b2")}
         />
-        <span className="photo-caption">احسان احترامی · عکاس و مدرس</span>
+        <span className="photo-caption">{copyText("sections_b73e9d63e2")}</span>
       </div>
       <div>
         <SectionHeading
-          eyebrow="پشت این قاب‌ها"
-          title="من احسانم؛ راوی نور و لحظه."
+          eyebrow={copyText("sections_1355d1ed73")}
+          title={copyText("sections_c173c30540")}
         />
         <p className="about-copy">{site.about}</p>
         <div className="about-facts">
           <div>
-            <strong>۱۵+</strong>
-            <span>سال تجربه در عکاسی</span>
+            <strong>{copyText("sections_b23f60a2f1")}</strong>
+            <span>{copyText("sections_98f7efb357")}</span>
           </div>
           <div>
             <Icon name="aperture" size={30} />
-            <span>از ایده تا ادیت نهایی</span>
+            <span>{copyText("sections_b6a86929d9")}</span>
           </div>
         </div>
-        <Link href="/about" className="text-link">
-          بیشتر درباره من <Icon name="arrow" />
+        <Link href={copyLink("sections_979bddc4a8")} className="text-link">{copyText("sections_51d2811fac")}<Icon name="arrow" />
         </Link>
       </div>
     </section>

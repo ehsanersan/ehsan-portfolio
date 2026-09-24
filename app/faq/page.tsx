@@ -1,9 +1,10 @@
+import { copyText, copyLink } from "@/lib/content";
 import { PageIntro, FAQ, CTA } from "@/components/sections";
 import { faqs } from "@/lib/content";
 import { pageMeta } from "@/lib/seo";
 export const metadata = pageMeta(
-  "سؤالات متداول",
-  "پاسخ پرسش‌های رایج درباره تعرفه عکاسی، رزرو، تحویل عکس، فایل خام و کلاس‌های آموزشی.",
+  copyText("faq_476550b8d8"),
+  copyText("faq_83dd7d27c7"),
   "/faq",
 );
 export default function FAQPage() {
@@ -24,9 +25,9 @@ export default function FAQPage() {
         }}
       />
       <PageIntro
-        eyebrow="با آگاهی شروع کنیم"
-        title="سؤال‌های شما، پاسخ‌های روشن"
-        description="شرایط نهایی هر پروژه در گفت‌وگو و توافق مستقیم مشخص می‌شود."
+        eyebrow={copyText("faq_cdede622f2")}
+        title={copyText("faq_d7f015fa80")}
+        description={copyText("faq_082f649839")}
       />
       <section className="wrap page-section">
         <FAQ />

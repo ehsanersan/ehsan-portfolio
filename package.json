@@ -7,7 +7,7 @@
     "build": "node scripts/build-thumbnails.mjs && next build",
     "start": "next start --hostname 127.0.0.1",
     "typecheck": "tsc --noEmit",
-    "test": "tsc -p tsconfig.test.json && node --test .data/test-build/tests/*.test.js",
+    "test": "tsc -p tsconfig.test.json && node --test .data/test-build/tests/*.test.js && node --test tests/cms.test.mjs",
     "db:init": "node scripts/init-db.mjs",
     "setup": "node scripts/setup.mjs",
     "test:smoke": "node scripts/smoke.mjs",
@@ -15,7 +15,9 @@
     "build:cloudflare": "opennextjs-cloudflare build",
     "deploy:cloudflare": "opennextjs-cloudflare deploy",
     "preview:cloudflare": "opennextjs-cloudflare preview",
-    "build:pages": "node scripts/build-pages.mjs"
+    "build:pages": "node scripts/build-pages.mjs",
+    "cms:bundle": "node scripts/bundle-cms.mjs",
+    "cms:check": "npm run cms:bundle && wrangler deploy --config cms/wrangler.jsonc --dry-run"
   },
   "engines": {
     "node": ">=22.13.0"
@@ -35,6 +37,7 @@
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.13.0",
+    "@babel/parser": "^7.29.9",
     "@opennextjs/cloudflare": "^1.20.6",
     "@playwright/test": "^1.63.0",
     "@types/node": "^22.20.3",

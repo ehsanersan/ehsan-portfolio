@@ -1,4 +1,6 @@
 "use client";
+import { copyText, copyLink } from "@/lib/content";
+
 import { assetPath } from "@/lib/paths";
 import { useEffect, useRef, useState } from "react";
 export function HeroVideo({ src, poster }: { src: string; poster: string }) {
@@ -23,7 +25,7 @@ export function HeroVideo({ src, poster }: { src: string; poster: string }) {
         loop
         playsInline
         preload="metadata"
-        aria-label="ویدیوی پشت صحنه عکاسی"
+        aria-label={copyText("hero_video_fed4ba10ef")}
       />
       <button
         className="video-toggle"

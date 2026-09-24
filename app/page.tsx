@@ -1,3 +1,4 @@
+import { copyText, copyLink } from "@/lib/content";
 import Image from "next/image";
 import Link from "next/link";
 import { site, works } from "@/lib/content";
@@ -13,7 +14,7 @@ import {
 } from "@/components/sections";
 import { pageMeta } from "@/lib/seo";
 export const metadata = pageMeta(
-  "هر تصویر، یک داستان ماندگار",
+  copyText("page_cd4f40746b"),
   site.description,
   "/",
 );
@@ -24,7 +25,7 @@ export default function Home() {
         <div className="hero-visual">
           <Image
             src={site.hero}
-            alt="پرتره هنری سیاه‌وسفید با نورپردازی سینمایی"
+            alt={copyText("page_b16f008254")}
             fill
             priority
             sizes="(max-width: 760px) 100vw, 60vw"
@@ -33,76 +34,57 @@ export default function Home() {
             <HeroVideo src={site.heroVideo} poster={site.hero} />
           )}
           <div className="hero-image-label">
-            <span>نور. احساس. داستان.</span>
-            <span lang="en">A DIFFERENT PERSPECTIVE</span>
+            <span>{copyText("page_a5d7fc42f8")}</span>
+            <span lang="en">{copyText("page_7076930e43")}</span>
           </div>
         </div>
         <div className="hero-content wrap">
           <div className="hero-copy">
-            <span className="eyebrow">عکاسی · فیلم‌برداری · آموزش</span>
-            <h1>
-              هر تصویر،
-              <br />
-              فرصتی برای ساختن
-              <br />
-              <span>یک داستان ماندگار.</span>
+            <span className="eyebrow">{copyText("page_8288c420e0")}</span>
+            <h1>{copyText("page_0fa74e7c79")}<br />{copyText("page_606783d620")}<br />
+              <span>{copyText("page_4b81efbcac")}</span>
             </h1>
-            <p>
-              من احسان احترامی هستم؛ عکاس، ادیتور و ویدیوگرافر.
-              <br className="desktop-only" /> بیش از ۱۵ سال، در جست‌وجوی نوری که
-              داستان شما را روایت کند.
-            </p>
+            <p>{copyText("page_db7492c0fc")}<br className="desktop-only" />{copyText("page_53305f0966")}</p>
             <div className="hero-actions">
-              <Link href="/portfolio" className="button primary">
-                مشاهده نمونه‌کارها <Icon name="arrow" />
+              <Link href={copyLink("page_a872f2517a")} className="button primary">{copyText("page_2f86e0ed28")}<Icon name="arrow" />
               </Link>
-              <Link href="/contact" className="button ghost">
-                مشاوره رایگان
-              </Link>
+              <Link href={copyLink("page_4eb9506365")} className="button ghost">{copyText("page_1df3700570")}</Link>
             </div>
             <a href={`tel:${site.phone}`} className="hero-phone">
-              <Icon name="phone" size={16} />
-              تماس فوری <b dir="ltr">{site.phoneLabel}</b>
+              <Icon name="phone" size={16} />{copyText("page_b14e260f29")}<b dir="ltr">{site.phoneLabel}</b>
             </a>
           </div>
           <div className="experience">
-            <strong>
-              ۱۵<span>+</span>
+            <strong>{copyText("page_45f7a40f94")}<span>+</span>
             </strong>
-            <span>
-              سال تجربه
-              <br />
-              در خلق تصویر
-            </span>
+            <span>{copyText("page_9b7d45735e")}<br />{copyText("page_50cf5d7c75")}</span>
             <Icon name="aperture" size={32} />
           </div>
         </div>
         <div className="hero-bottom wrap">
-          <span lang="en">PHOTOGRAPHY & VISUAL STORIES</span>
-          <a href="#selected">
-            کمی پایین‌تر، دنیای من را ببینید <span>↓</span>
+          <span lang="en">{copyText("page_42ba93a85d")}</span>
+          <a href="#selected">{copyText("page_02022fbb7c")}<span>↓</span>
           </a>
         </div>
       </section>
       <div className="expertise-strip">
-        <span>عکاسی تبلیغاتی</span>
+        <span>{copyText("page_d53af0a555")}</span>
         <i>✦</i>
-        <span>پرتره و نورپردازی</span>
+        <span>{copyText("page_2da31ec748")}</span>
         <i>✦</i>
-        <span>ادیت و روتوش</span>
+        <span>{copyText("page_709a18460c")}</span>
         <i>✦</i>
-        <span>آموزش خصوصی</span>
+        <span>{copyText("page_a807494483")}</span>
         <i>✦</i>
-        <span>روایت تصویری</span>
+        <span>{copyText("page_cb2b5bee9a")}</span>
       </div>
       <section className="section wrap" id="selected">
         <div className="section-top">
           <SectionHeading
-            eyebrow="منتخبی از نگاه من"
-            title="قاب‌هایی که حرف می‌زنند"
+            eyebrow={copyText("page_c20e28ceb9")}
+            title={copyText("page_583bdbec92")}
           />
-          <Link href="/portfolio" className="text-link">
-            همه نمونه‌کارها <Icon name="arrow" />
+          <Link href={copyLink("page_a872f2517a")} className="text-link">{copyText("page_0a47bda53d")}<Icon name="arrow" />
           </Link>
         </div>
         <div className="selected-grid">
@@ -137,11 +119,10 @@ export default function Home() {
         <div className="wrap">
           <div className="section-top">
             <SectionHeading
-              eyebrow="چه کاری برای شما انجام می‌دهم؟"
-              title="ایدهٔ شما، تخصص من"
+              eyebrow={copyText("page_168784fb38")}
+              title={copyText("page_0bc02a5840")}
             />
-            <Link href="/services" className="text-link">
-              همه خدمات <Icon name="arrow" />
+            <Link href={copyLink("page_3b1aeccb74")} className="text-link">{copyText("page_a19b736e9f")}<Icon name="arrow" />
             </Link>
           </div>
           <ServiceCards limit={3} />
@@ -150,10 +131,9 @@ export default function Home() {
       <AboutBlock />
       <Process />
       <section className="section wrap faq-section">
-        <SectionHeading eyebrow="پیش از شروع" title="شاید سؤال شما هم باشد" />
+        <SectionHeading eyebrow={copyText("page_616123926a")} title={copyText("page_c5e3100431")} />
         <FAQ limit={5} />
-        <Link href="/faq" className="text-link">
-          همه سؤال‌ها و پاسخ‌ها <Icon name="arrow" />
+        <Link href={copyLink("page_1965ee0fd5")} className="text-link">{copyText("page_d3a2970d8b")}<Icon name="arrow" />
         </Link>
       </section>
       <CTA />
