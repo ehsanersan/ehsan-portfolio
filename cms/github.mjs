@@ -1,7 +1,7 @@
 import { validateContent, validateUpload, imagePath } from './schema.mjs';
 export class HttpError extends Error { constructor(status,message){super(message);this.status=status;} }
 export class GitHubStore {
-  constructor(env,fetcher=fetch){this.env=env;this.fetcher=fetcher;this.root=`https://api.github.com/repos/${env.GITHUB_REPOSITORY}`;}
+  constructor(env,fetcher=(...args)=>fetch(...args)){this.env=env;this.fetcher=fetcher;this.root=`https://api.github.com/repos/${env.GITHUB_REPOSITORY}`;}
   async api(path,method='GET',body){
     const r=await this.fetcher(this.root+path,{method,headers:{'Authorization':`Bearer ${this.env.GITHUB_TOKEN}`,'User-Agent':'Ehsan-Portfolio-CMS','Accept':'application/vnd.github+json','X-GitHub-Api-Version':'2026-03-10',...(body?{'Content-Type':'application/json'}:{})},...(body?{body:JSON.stringify(body)}:{})});
     if(!r.ok)throw new HttpError(r.status===409||r.status===422?409:502,r.status===409||r.status===422?'نسخهٔ مخزن تغییر کرده است. ابتدا محتوا را دوباره دریافت کنید.':'ارتباط با مخزن انجام نشد. تنظیمات دسترسی سرور را بررسی کنید.');
